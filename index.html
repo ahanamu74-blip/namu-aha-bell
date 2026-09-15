@@ -1,124 +1,471 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>namu aha | 범종</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>새벽 산사의 울림 | NAMU AHA</title>
 
 <style>
-body {
+* {
+  box-sizing: border-box;
+}
+
+html, body {
   margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  font-family: "Noto Serif KR", "Malgun Gothic", serif;
+  background: #17201d;
+  color: #f5efe4;
+}
+
+body {
   min-height: 100vh;
-  display: grid;
-  place-items: center;
-  background: #11100e;
-  color: #eee8dc;
-  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.page {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(10,18,17,0.05) 0%,
+      rgba(15,23,21,0.12) 35%,
+      rgba(14,20,18,0.72) 73%,
+      rgba(12,17,15,0.98) 100%
+    ),
+    radial-gradient(
+      circle at 25% 27%,
+      #e8cba2 0%,
+      #a6afa2 25%,
+      #61726b 48%,
+      #263630 73%,
+      #151d1a 100%
+    );
+}
+
+/* 산 능선 */
+.mountain {
+  position: absolute;
+  left: -15%;
+  width: 130%;
+  border-radius: 50% 50% 0 0;
+  transform: rotate(-5deg);
+}
+
+.m1 {
+  height: 240px;
+  top: 255px;
+  background: rgba(57,79,71,.46);
+  clip-path: polygon(
+    0 78%, 15% 58%, 30% 69%, 47% 39%,
+    61% 57%, 75% 35%, 100% 72%,
+    100% 100%, 0 100%
+  );
+}
+
+.m2 {
+  height: 260px;
+  top: 315px;
+  background: rgba(34,55,48,.62);
+  clip-path: polygon(
+    0 65%, 20% 47%, 37% 68%, 54% 44%,
+    71% 62%, 85% 42%, 100% 61%,
+    100% 100%, 0 100%
+  );
+}
+
+/* 안개 */
+.mist {
+  position: absolute;
+  width: 130%;
+  height: 120px;
+  left: -15%;
+  top: 360px;
+  background: rgba(224,225,211,.12);
+  filter: blur(24px);
+  border-radius: 50%;
+}
+
+/* 산사 기둥 */
+.temple {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 28%;
+  height: 72%;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(60,39,25,.20),
+      rgba(45,27,18,.85)
+    );
+  border-left: 2px solid rgba(205,151,82,.35);
+}
+
+/* 처마 */
+.roof {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 52%;
+  height: 95px;
+  background: #271b14;
+  clip-path: polygon(
+    15% 0,
+    100% 0,
+    100% 72%,
+    55% 65%,
+    0 100%
+  );
+}
+
+/* 범종 */
+.bell {
+  position: absolute;
+  right: 39px;
+  top: 142px;
+  width: 78px;
+  height: 95px;
+  border-radius: 38% 38% 16% 16%;
+  background:
+    linear-gradient(
+      90deg,
+      #5b3d22,
+      #b6874d 43%,
+      #73502d 72%,
+      #3d291a
+    );
+  box-shadow: 0 8px 28px rgba(0,0,0,.35);
+}
+
+.bell:before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 18px;
+  border-radius: 50% 50% 0 0;
+  background: #8e6638;
+  left: 24px;
+  top: -15px;
+}
+
+.bell:after {
+  content: "";
+  position: absolute;
+  width: 92px;
+  height: 12px;
+  background: #9a7040;
+  left: -7px;
+  bottom: -4px;
+  border-radius: 50%;
+}
+
+/* 전체 내용 */
+.content {
+  position: relative;
+  z-index: 5;
+  min-height: 100vh;
+  padding: 54px 32px 42px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
-main {
-  width: 90%;
-  max-width: 460px;
-}
-
 .brand {
+  font-family: Georgia, serif;
+  letter-spacing: 5px;
   font-size: 14px;
-  letter-spacing: .22em;
-  opacity: .6;
-  margin-bottom: 55px;
+  opacity: .92;
 }
 
-.bell {
-  font-size: 78px;
-  margin-bottom: 25px;
+.brand-sub {
+  margin-top: 7px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  opacity: .65;
+}
+
+.spacer {
+  height: 295px;
 }
 
 h1 {
-  font-size: 25px;
+  margin: 0;
+  font-size: 29px;
   font-weight: 500;
+  letter-spacing: -1px;
 }
 
-p {
-  font-size: 14px;
-  opacity: .6;
-  margin-bottom: 35px;
+.message {
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 2;
+  color: rgba(247,240,226,.80);
 }
 
-button {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 1px solid #9d8a68;
-  background: #1b1916;
-  color: #eee8dc;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.note {
+/* 재생 버튼 */
+.play {
   margin-top: 30px;
-  font-size: 12px;
-  opacity: .4;
+  width: 94px;
+  height: 94px;
+  border-radius: 50%;
+  border: 1px solid rgba(240,222,190,.55);
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(5px);
+  color: #f5e8d1;
+  font-size: 28px;
+  cursor: pointer;
+
+  box-shadow:
+    0 0 0 9px rgba(255,255,255,.025),
+    0 10px 35px rgba(0,0,0,.20);
+
+  transition: .5s;
+}
+
+.play.playing {
+  transform: scale(1.05);
+
+  box-shadow:
+    0 0 0 16px rgba(222,190,139,.05),
+    0 0 42px rgba(219,181,118,.18);
+}
+
+.play-text {
+  margin-top: 12px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: rgba(245,235,216,.76);
+}
+
+.line {
+  width: 44px;
+  height: 1px;
+  margin: 30px 0 22px;
+  background: rgba(224,203,170,.45);
+}
+
+.wish {
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #eee2ce;
+}
+
+.english {
+  margin-top: 16px;
+  font-family: Georgia, serif;
+  font-size: 10px;
+  line-height: 1.7;
+  letter-spacing: 3px;
+  opacity: .46;
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: 35px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  opacity: .38;
+}
+
+/* 종이 울릴 때 퍼지는 파동 */
+.ripple {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border: 1px solid rgba(237,213,172,.20);
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 623px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.playing-wave {
+  animation: ripple 3s infinite;
+}
+
+@keyframes ripple {
+  0% {
+    transform: translateX(-50%) scale(.65);
+    opacity: .45;
+  }
+
+  100% {
+    transform: translateX(-50%) scale(1.8);
+    opacity: 0;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<main>
+<div class="page">
 
-<div class="brand">NAMU AHA</div>
+  <div class="mountain m1"></div>
+  <div class="mountain m2"></div>
+  <div class="mist"></div>
 
-<div class="bell">🔔</div>
+  <div class="temple"></div>
+  <div class="roof"></div>
+  <div class="bell"></div>
 
-<h1>새벽 산사의 울림</h1>
+  <div id="ripple" class="ripple"></div>
 
-<p>잠시 머물러, 깊은 울림을 들어보세요.</p>
+  <main class="content">
 
-<button id="play">
-종을 울려보세요
-</button>
+    <div class="brand">
+      NAMU AHA
+    </div>
 
-<div class="note">
-한 번 터치하면 범종 소리가 재생됩니다.
+    <div class="brand-sub">
+      일상의 작은 울림
+    </div>
+
+    <div class="spacer"></div>
+
+    <h1>
+      새벽 산사의 울림
+    </h1>
+
+    <div class="message">
+      잠시, 마음을 내려놓습니다.<br>
+      깊은 울림이 지나간 자리에<br>
+      고요가 머뭅니다.
+    </div>
+
+    <button
+      id="playBtn"
+      class="play"
+      aria-label="종소리 재생"
+    >
+      ▶
+    </button>
+
+    <div
+      id="playText"
+      class="play-text"
+    >
+      울림을 듣다
+    </div>
+
+    <div class="line"></div>
+
+    <div class="wish">
+      오늘도 평안하기를.
+    </div>
+
+    <div class="english">
+      A SMALL BELL<br>
+      FOR A CALMER DAY
+    </div>
+
+    <div class="footer">
+      NATURAL · MINDFUL · EVERYDAY
+    </div>
+
+  </main>
+
+  <!-- 기존 종소리 파일 그대로 사용 -->
+  <audio
+    id="bellAudio"
+    preload="auto"
+  >
+    <source
+      src="bell_nfc_final.mp3"
+      type="audio/mpeg"
+    >
+  </audio>
+
 </div>
 
-<audio id="audio" preload="metadata"
-src="bell_nfc_final.mp3"></audio>
-
-</main>
-
 <script>
-const audio = document.getElementById("audio");
-const button = document.getElementById("play");
 
-button.addEventListener("click", async function() {
+const audio =
+  document.getElementById("bellAudio");
 
-  try {
+const button =
+  document.getElementById("playBtn");
 
-    if (!audio.paused) {
+const text =
+  document.getElementById("playText");
+
+const ripple =
+  document.getElementById("ripple");
+
+
+button.addEventListener(
+  "click",
+  function () {
+
+    if (audio.paused) {
+
+      audio.play();
+
+      button.textContent = "Ⅱ";
+
+      text.textContent =
+        "울리는 중...";
+
+      button.classList.add(
+        "playing"
+      );
+
+      ripple.classList.add(
+        "playing-wave"
+      );
+
+    } else {
+
       audio.pause();
-      button.textContent = "다시 울리기";
-      return;
+
+      button.textContent = "▶";
+
+      text.textContent =
+        "다시 고요히";
+
+      button.classList.remove(
+        "playing"
+      );
+
+      ripple.classList.remove(
+        "playing-wave"
+      );
     }
-
-    audio.currentTime = 0;
-    await audio.play();
-
-    button.textContent = "울리는 중…";
-
-  } catch(error) {
-
-    button.textContent = "다시 눌러주세요";
-
   }
+);
 
-});
 
-audio.addEventListener("ended", function() {
-  button.textContent = "다시 울리기";
-});
+audio.addEventListener(
+  "ended",
+  function () {
+
+    button.textContent = "▶";
+
+    text.textContent =
+      "다시 울림을 듣다";
+
+    button.classList.remove(
+      "playing"
+    );
+
+    ripple.classList.remove(
+      "playing-wave"
+    );
+  }
+);
+
 </script>
 
 </body>

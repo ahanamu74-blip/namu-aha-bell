@@ -2,429 +2,93 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
 
 <title>새벽 산사의 울림 | NAMU AHA</title>
 
 <style>
+
 * {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   width: 100%;
   height: 100%;
-  background: #182723;
-  color: #f7eee2;
-  font-family: "Noto Serif KR", "Apple SD Gothic Neo", serif;
-}
-
-body {
+  background: #17241f;
   overflow: hidden;
 }
 
-/* =========================
-   전체 화면
-========================= */
+/* 전체 화면 */
 
-.hero {
+.page {
   position: relative;
   width: 100%;
   height: 100svh;
-  min-height: 560px;
   overflow: hidden;
-
-  background:
-    radial-gradient(
-      circle at 25% 18%,
-      rgba(255, 197, 125, .95) 0%,
-      rgba(205, 135, 88, .55) 13%,
-      transparent 32%
-    ),
-    linear-gradient(
-      180deg,
-      #263a35 0%,
-      #4b5c52 30%,
-      #718078 48%,
-      #344b44 72%,
-      #182723 100%
-    );
+  background: #17241f;
 }
 
-/* =========================
-   새벽 해
-========================= */
+/* 우리가 확정한 디자인 이미지 */
 
-.sun {
+.main-image {
   position: absolute;
-  top: 11%;
-  left: 18%;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
+  inset: 0;
 
-  background: #ffe1ad;
-
-  box-shadow:
-    0 0 35px rgba(255, 200, 130, .9),
-    0 0 95px rgba(255, 158, 80, .48);
-}
-
-/* =========================
-   산
-========================= */
-
-.mountain {
-  position: absolute;
-  left: -10%;
-  width: 120%;
-}
-
-.m1 {
-  bottom: 37%;
-  height: 40%;
-
-  background: rgba(45, 68, 62, .48);
-
-  clip-path: polygon(
-    0 78%,
-    13% 59%,
-    26% 70%,
-    40% 36%,
-    55% 64%,
-    70% 43%,
-    86% 64%,
-    100% 42%,
-    100% 100%,
-    0 100%
-  );
-}
-
-.m2 {
-  bottom: 25%;
-  height: 39%;
-
-  background: rgba(27, 51, 45, .76);
-
-  clip-path: polygon(
-    0 73%,
-    16% 44%,
-    31% 65%,
-    47% 33%,
-    62% 64%,
-    78% 40%,
-    100% 64%,
-    100% 100%,
-    0 100%
-  );
-}
-
-/* =========================
-   안개
-========================= */
-
-.mist {
-  position: absolute;
-  left: -10%;
-  bottom: 25%;
-
-  width: 120%;
-  height: 31%;
-
-  background:
-    linear-gradient(
-      180deg,
-      transparent,
-      rgba(235, 231, 215, .24),
-      rgba(235, 231, 215, .09),
-      transparent
-    );
-
-  filter: blur(11px);
-}
-
-/* =========================
-   사찰 처마
-========================= */
-
-.temple {
-  position: absolute;
-  right: -20px;
-  top: 0;
-
-  width: 44%;
-  height: 63%;
-}
-
-.roof {
-  position: absolute;
-  top: 4%;
-  right: -10%;
-
-  width: 126%;
-  height: 20%;
-
-  background: #151f1c;
-
-  clip-path: polygon(
-    8% 25%,
-    100% 0,
-    100% 58%,
-    82% 50%,
-    63% 63%,
-    42% 48%,
-    20% 62%,
-    0 42%
-  );
-
-  filter: drop-shadow(0 10px 12px rgba(0,0,0,.35));
-}
-
-.column {
-  position: absolute;
-  right: 20%;
-  top: 18%;
-
-  width: 15px;
-  height: 58%;
-
-  background:
-    linear-gradient(
-      90deg,
-      #201813,
-      #50392b,
-      #201813
-    );
-}
-
-/* =========================
-   종
-========================= */
-
-.bell {
-  position: absolute;
-  right: 24%;
-  top: 28%;
-
-  width: 90px;
-  height: 120px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #36271d,
-      #8a6d49 28%,
-      #ad8d61 48%,
-      #59422e 72%,
-      #241b16
-    );
-
-  border-radius: 45% 45% 17% 17%;
-
-  box-shadow:
-    inset 8px 0 18px rgba(255,220,150,.15),
-    0 14px 25px rgba(0,0,0,.32);
-}
-
-.bell::before {
-  content: "";
-  position: absolute;
-
-  top: -22px;
-  left: 35px;
-
-  width: 20px;
-  height: 30px;
-
-  border-radius: 8px;
-
-  background: #5c4632;
-}
-
-.bell::after {
-  content: "";
-  position: absolute;
-
-  bottom: -7px;
-  left: -7px;
-
-  width: 104px;
-  height: 15px;
-
-  border-radius: 50%;
-
-  background: #32241b;
-}
-
-/* =========================
-   콘텐츠
-========================= */
-
-.content {
-  position: relative;
-  z-index: 10;
-
+  width: 100%;
   height: 100%;
 
-  padding:
-    max(25px, env(safe-area-inset-top))
-    25px
-    max(20px, env(safe-area-inset-bottom));
+  object-fit: cover;
+  object-position: center center;
 
-  display: flex;
-  flex-direction: column;
+  user-select: none;
+  -webkit-user-select: none;
+
+  pointer-events: none;
 }
 
-/* 브랜드 */
+/*
+  실제 재생 버튼
 
-.brand {
-  font-size: 18px;
-  letter-spacing: 5px;
-  font-weight: 700;
-}
-
-.brand-sub {
-  margin-top: 5px;
-
-  font-size: 10px;
-  letter-spacing: 3px;
-
-  opacity: .72;
-}
-
-/* =========================
-   메인 문구
-========================= */
-
-.copy {
-  margin-top: 12vh;
-  max-width: 72%;
-}
-
-.copy h1 {
-  margin: 0 0 13px;
-
-  font-size: clamp(27px, 7vw, 42px);
-  line-height: 1.18;
-
-  font-weight: 500;
-  letter-spacing: -1px;
-
-  text-shadow: 0 2px 10px rgba(0,0,0,.25);
-}
-
-.copy p {
-  margin: 0;
-
-  font-size: 14px;
-  line-height: 1.9;
-
-  color: rgba(255,245,232,.88);
-
-  text-shadow:
-    0 1px 6px rgba(0,0,0,.35);
-}
-
-/* 작은 장식선 */
-
-.line {
-  width: 45px;
-  height: 1px;
-
-  margin-top: 18px;
-
-  background:
-    rgba(255,224,185,.65);
-}
-
-/* =========================
-   플레이
-========================= */
-
-.play-area {
-  margin-top: auto;
-  margin-bottom: 10vh;
-
-  display: flex;
-  align-items: center;
-
-  gap: 17px;
-}
+  이미지에 그려져 있는
+  '울림을 듣다' 원형 버튼 위에
+  투명 버튼을 겹칩니다.
+*/
 
 .play-button {
-  position: relative;
+  position: absolute;
 
-  width: 94px;
-  height: 94px;
+  left: 50%;
+  top: 58%;
 
-  flex: 0 0 94px;
+  transform: translate(-50%, -50%);
 
+  width: 120px;
+  height: 120px;
+
+  border: none;
   border-radius: 50%;
 
-  border:
-    1px solid rgba(255,236,210,.72);
-
-  background:
-    rgba(32,45,40,.40);
-
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
-  color: #fff3e4;
+  background: transparent;
 
   cursor: pointer;
 
-  box-shadow:
-    0 0 0 10px rgba(255,220,178,.04),
-    0 10px 30px rgba(0,0,0,.28);
+  -webkit-tap-highlight-color: transparent;
 }
 
-.play-button .icon {
-  display: block;
+/* 누를 때 살짝 반응 */
 
-  font-size: 25px;
-  line-height: 1;
-
-  margin-left: 3px;
+.play-button:active {
+  background: rgba(255,255,255,0.08);
 }
 
-.play-button .label {
-  display: block;
-
-  margin-top: 7px;
-
-  font-size: 10px;
-  letter-spacing: 1px;
-}
-
-.play-text {
-  max-width: 150px;
-}
-
-.play-text strong {
-  display: block;
-
-  font-size: 14px;
-  font-weight: 500;
-
-  letter-spacing: .5px;
-}
-
-.play-text span {
-  display: block;
-
-  margin-top: 6px;
-
-  font-size: 10px;
-  line-height: 1.55;
-
-  opacity: .66;
-}
-
-/* =========================
-   재생 파동
-========================= */
+/* 재생 중 은은한 파동 */
 
 .play-button.playing::before,
 .play-button.playing::after {
@@ -433,212 +97,81 @@ body {
 
   position: absolute;
 
-  inset: -1px;
-
-  border:
-    1px solid rgba(255,224,183,.58);
+  inset: 7px;
 
   border-radius: 50%;
 
-  animation:
-    ripple 2.2s infinite;
+  border: 1px solid rgba(255,235,205,.55);
+
+  animation: ripple 2.4s infinite;
 }
 
 .play-button.playing::after {
-  animation-delay: 1.1s;
+  animation-delay: 1.2s;
 }
 
 @keyframes ripple {
 
-  from {
-    transform: scale(1);
-    opacity: .65;
+  0% {
+    transform: scale(.85);
+    opacity: .7;
   }
 
-  to {
+  100% {
     transform: scale(1.65);
     opacity: 0;
   }
 }
 
-/* =========================
-   하단 문구
-========================= */
 
-.footer {
+/* 작은 휴대폰에서는 버튼 위치 미세 조정 */
 
-  position: absolute;
-
-  z-index: 12;
-
-  bottom: 15px;
-  left: 25px;
-  right: 25px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-
-  font-size: 9px;
-  letter-spacing: 1.2px;
-
-  color:
-    rgba(255,242,225,.55);
-}
-
-/* =========================
-   작은 휴대폰
-========================= */
-
-@media (max-height: 720px) {
-
-  .copy {
-    margin-top: 8vh;
-  }
-
-  .play-area {
-    margin-bottom: 7vh;
-  }
-
-  .copy h1 {
-    font-size: 25px;
-  }
-
-  .copy p {
-    font-size: 13px;
-  }
+@media (max-height: 700px) {
 
   .play-button {
-    width: 82px;
-    height: 82px;
-    flex-basis: 82px;
+    top: 56%;
+    width: 105px;
+    height: 105px;
   }
 
-  .bell {
-    transform: scale(.88);
-  }
 }
 
 </style>
 </head>
 
+
 <body>
 
-<section class="hero">
+<div class="page">
 
-  <!-- 배경 -->
-  <div class="sun"></div>
-
-  <div class="mountain m1"></div>
-  <div class="mountain m2"></div>
-
-  <div class="mist"></div>
-
-  <!-- 사찰 -->
-  <div class="temple">
-    <div class="roof"></div>
-    <div class="column"></div>
-    <div class="bell"></div>
-  </div>
-
-  <!-- 내용 -->
-  <div class="content">
-
-    <div>
-      <div class="brand">
-        NAMU AHA
-      </div>
-
-      <div class="brand-sub">
-        일상의 작은 울림
-      </div>
-    </div>
-
-
-    <div class="copy">
-
-      <h1>
-        새벽 산사의 울림
-      </h1>
-
-      <p>
-        잠시, 마음을 내려놓습니다.<br>
-        깊은 울림이 지나간 자리에<br>
-        고요가 머뭅니다.
-      </p>
-
-      <div class="line"></div>
-
-    </div>
-
-
-    <div class="play-area">
-
-      <button
-        class="play-button"
-        id="playButton"
-        aria-label="종소리 재생"
-      >
-
-        <span
-          class="icon"
-          id="playIcon"
-        >
-          ▶
-        </span>
-
-        <span
-          class="label"
-          id="playLabel"
-        >
-          울림을 듣다
-        </span>
-
-      </button>
-
-
-      <div class="play-text">
-
-        <strong>
-          마음을 여는 한 번의 울림
-        </strong>
-
-        <span>
-          가볍게 눌러<br>
-          새벽 산사의 울림을 만나보세요.
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="footer">
-
-    <span>
-      오늘도 평안하기를.
-    </span>
-
-    <span>
-      A SMALL BELL · FOR A CALMER DAY
-    </span>
-
-  </div>
-
-</section>
-
-
-<audio
-  id="bellAudio"
-  preload="auto"
->
-  <source
-    src="bell_nfc_final.mp3"
-    type="audio/mpeg"
+  <!-- 확정한 메인 디자인 -->
+  <img
+    src="temple-main.png"
+    class="main-image"
+    alt="새벽 산사의 울림"
   >
-</audio>
+
+
+  <!-- 이미지 위 실제 재생 버튼 -->
+  <button
+    id="playButton"
+    class="play-button"
+    aria-label="울림을 듣다"
+  ></button>
+
+
+  <!-- 종소리 -->
+  <audio
+    id="bellAudio"
+    preload="auto"
+  >
+    <source
+      src="bell_nfc_final.mp3"
+      type="audio/mpeg"
+    >
+  </audio>
+
+</div>
 
 
 <script>
@@ -649,92 +182,69 @@ const audio =
 const button =
   document.getElementById("playButton");
 
-const icon =
-  document.getElementById("playIcon");
 
-const label =
-  document.getElementById("playLabel");
+/* 버튼 터치 */
 
+button.addEventListener("click", async () => {
 
-function playingUI() {
-
-  button.classList.add("playing");
-
-  icon.textContent = "Ⅱ";
-
-  label.textContent = "울림 속에";
-}
-
-
-function stoppedUI() {
-
-  button.classList.remove("playing");
-
-  icon.textContent = "▶";
-
-  label.textContent = "울림을 듣다";
-}
-
-
-/* 버튼 재생 */
-
-button.addEventListener(
-  "click",
-  async () => {
-
-    if (audio.paused) {
-
-      try {
-
-        await audio.play();
-
-        playingUI();
-
-      } catch (e) {
-
-        stoppedUI();
-      }
-
-    } else {
-
-      audio.pause();
-
-      stoppedUI();
-    }
-  }
-);
-
-
-/* 재생 종료 */
-
-audio.addEventListener(
-  "ended",
-  stoppedUI
-);
-
-
-/* 자동재생 시도 */
-
-window.addEventListener(
-  "load",
-  async () => {
+  if (audio.paused) {
 
     try {
 
+      audio.currentTime = 0;
+
       await audio.play();
 
-      playingUI();
+      button.classList.add("playing");
 
-    } catch (e) {
+    } catch (error) {
 
-      /*
-      스마트폰에서 자동재생이
-      차단되면 아무것도 하지 않고
-      플레이 버튼을 보여줍니다.
-      */
+      button.classList.remove("playing");
+
     }
+
+  } else {
+
+    audio.pause();
+
+    button.classList.remove("playing");
+
   }
-);
+
+});
+
+
+/* 종소리가 끝나면 파동 종료 */
+
+audio.addEventListener("ended", () => {
+
+  button.classList.remove("playing");
+
+});
+
+
+/*
+  NFC로 페이지가 열렸을 때
+  브라우저가 허용하면 자동재생을 시도합니다.
+
+  자동재생이 차단되는 휴대폰에서는
+  화면의 '울림을 듣다' 버튼을 누르면 됩니다.
+*/
+
+window.addEventListener("load", async () => {
+
+  try {
+
+    await audio.play();
+
+    button.classList.add("playing");
+
+  } catch (error) {
+
+    /* 자동재생 차단 - 정상 */
+  }
+
+});
 
 </script>
 
